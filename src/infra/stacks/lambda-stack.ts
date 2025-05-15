@@ -1,12 +1,9 @@
 import { Stack, StackProps } from 'aws-cdk-lib'
 import { Construct } from 'constructs'
-import {
-  Function as LambdaFunction,
-  Code,
-  Runtime
-} from 'aws-cdk-lib/aws-lambda'
+import { Code, Runtime } from 'aws-cdk-lib/aws-lambda'
 import { LambdaIntegration } from 'aws-cdk-lib/aws-apigateway'
 import { ITable } from 'aws-cdk-lib/aws-dynamodb'
+import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
 
 interface LambdaStackProps extends StackProps {
   spacesTable: ITable
@@ -18,9 +15,9 @@ export class LambdaStack extends Stack {
   constructor(scope: Construct, id: string, props: LambdaStackProps) {
     super(scope, id, props)
 
-    const helloLambda = new LambdaFunction(this, 'HelloFunction', {
-      code: Code.fromAsset('src/services'),
-      handler: 'hello.main',
+    const helloLambda = new NodejsFunction(this, 'HelloFunction', {
+      entry: 'src/services/hello.ts',
+      handler: 'handler',
       runtime: Runtime.NODEJS_20_X,
       environment: {
         TABLE_NAME: props.spacesTable.tableName
