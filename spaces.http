@@ -1,3 +1,8 @@
-GET https://vm9aupa09k.execute-api.us-east-1.amazonaws.com/prod/spaces
+GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
 
 ###
+POST https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
+
+{
+  "name": "Space 1"
+}
