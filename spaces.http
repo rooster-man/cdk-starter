@@ -1,6 +1,9 @@
 GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
 
 ###
+GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=6ed10520-3aa5-41d8-b58b-26a44e302b08
+
+###
 POST https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
 content-type: application/json
 
