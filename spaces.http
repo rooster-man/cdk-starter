@@ -2,7 +2,8 @@ GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
 
 ###
 POST https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
+content-type: application/json
 
 {
-  "name": "Space 1"
+  "location": "Texas"
 }

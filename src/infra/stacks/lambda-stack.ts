@@ -1,6 +1,6 @@
 import { Stack, StackProps } from 'aws-cdk-lib'
 import { Construct } from 'constructs'
-import { Code, Runtime } from 'aws-cdk-lib/aws-lambda'
+import { Runtime } from 'aws-cdk-lib/aws-lambda'
 import { LambdaIntegration } from 'aws-cdk-lib/aws-apigateway'
 import { ITable } from 'aws-cdk-lib/aws-dynamodb'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
@@ -24,6 +24,13 @@ export class LambdaStack extends Stack {
         TABLE_NAME: props.spacesTable.tableName
       }
     })
+
+    spacesLambda.addToRolePolicy(
+      new PolicyStatement({
+        actions: ['dynamodb:PutItem'],
+        resources: [props.spacesTable.tableArn]
+      })
+    )
 
     this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda)
   }
