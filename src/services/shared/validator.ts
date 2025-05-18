@@ -6,6 +6,12 @@ export class MissingFieldError extends Error {
   }
 }
 
+export class JsonError extends Error {
+  constructor(message: string) {
+    super(message)
+  }
+}
+
 export const validateSpace = (arg: any) => {
   if ((arg as Space).id === undefined) {
     throw new MissingFieldError('id')

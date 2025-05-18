@@ -7,13 +7,14 @@ import {
 } from 'aws-lambda'
 import { v4 } from 'uuid'
 import { validateSpace } from '../shared/validator'
+import { parseJSON } from '../shared/utils'
 
 export async function postSpaces(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
   const randomId = v4()
-  const item = JSON.parse(event.body)
+  const item = parseJSON(event.body)
   item.id = randomId
 
   validateSpace(item)
