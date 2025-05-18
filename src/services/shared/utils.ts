@@ -1,4 +1,5 @@
 import { JsonError } from './validator'
+import { randomUUID } from 'crypto'
 
 export const parseJSON = (arg: string) => {
   try {
@@ -6,4 +7,8 @@ export const parseJSON = (arg: string) => {
   } catch (e) {
     throw new JsonError(e.message)
   }
+}
+
+export const createRandomId = () => {
+  return randomUUID()
 }

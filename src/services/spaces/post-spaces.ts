@@ -5,15 +5,14 @@ import {
   APIGatewayProxyResult,
   Context
 } from 'aws-lambda'
-import { v4 } from 'uuid'
 import { validateSpace } from '../shared/validator'
-import { parseJSON } from '../shared/utils'
+import { createRandomId, parseJSON } from '../shared/utils'
 
 export async function postSpaces(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
-  const randomId = v4()
+  const randomId = createRandomId()
   const item = parseJSON(event.body)
   item.id = randomId
 
