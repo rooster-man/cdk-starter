@@ -9,13 +9,18 @@ content-type: application/json
 
 {
   "name": "hayden",
-  "location": "China"
+  "location": "World"
 }
 
 ###
-PUT https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=e82326d0-040f-4f7d-9304-2a14a21be688
+PUT https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=bc0ec6af-be91-4dec-84b0-afdb6b5a75d7
 content-type: application/json
 
 {
   "location": "jackson"
 }
+
+###
+
+DELETE https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=bc0ec6af-be91-4dec-84b0-afdb6b5a75d7
+content-type: application/json
