@@ -7,6 +7,7 @@ import {
 import { postSpaces } from './post-spaces'
 import { getSpaces } from './get-spaces'
 import { putSpace } from './put-space'
+import { deleteSpace } from './delete-space'
 
 const ddbClient = new DynamoDBClient({})
 
@@ -22,6 +23,8 @@ async function handler(
         return postSpaces(event, ddbClient)
       case 'PUT':
         return putSpace(event, ddbClient)
+      case 'DELETE':
+        return deleteSpace(event, ddbClient)
       default:
         return {
           statusCode: 405,

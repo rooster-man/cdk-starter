@@ -10,11 +10,11 @@ import { handler } from '../src/services/spaces/handler'
 
 handler(
   {
-    httpMethod: 'PUT',
+    httpMethod: 'DELETE',
     queryStringParameters: {
       id: '6ed10520-3aa5-41d8-b58b-26a44e302b08'
-    },
-    body: JSON.stringify({ location: 'Delaware' })
+    }
+    // body: JSON.stringify({ location: 'Delaware' })
   } as any,
   {} as any
 )
