@@ -1,4 +1,5 @@
 import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb'
+import { marshall } from '@aws-sdk/util-dynamodb'
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult,
@@ -17,10 +18,7 @@ export async function postSpaces(
   const result = await ddbClient.send(
     new PutItemCommand({
       TableName: process.env.TABLE_NAME,
-      Item: {
-        id: { S: item.id },
-        location: { S: item.location }
-      }
+      Item: marshall(item)
     })
   )
 

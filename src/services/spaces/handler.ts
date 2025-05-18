@@ -6,6 +6,7 @@ import {
 } from 'aws-lambda'
 import { postSpaces } from './post-spaces'
 import { getSpaces } from './get-spaces'
+import { putSpace } from './put-space'
 
 const ddbClient = new DynamoDBClient({})
 
@@ -19,6 +20,8 @@ async function handler(
         return getSpaces(event, ddbClient)
       case 'POST':
         return postSpaces(event, ddbClient)
+      case 'PUT':
+        return putSpace(event, ddbClient)
       default:
         return {
           statusCode: 405,
