@@ -6,6 +6,7 @@ import {
   Context
 } from 'aws-lambda'
 import { v4 } from 'uuid'
+import { validateSpace } from '../shared/validator'
 
 export async function postSpaces(
   event: APIGatewayProxyEvent,
@@ -15,14 +16,14 @@ export async function postSpaces(
   const item = JSON.parse(event.body)
   item.id = randomId
 
+  validateSpace(item)
+
   const result = await ddbClient.send(
     new PutItemCommand({
       TableName: process.env.TABLE_NAME,
       Item: marshall(item)
     })
   )
-
-  console.log(result)
 
   return {
     statusCode: 201,
