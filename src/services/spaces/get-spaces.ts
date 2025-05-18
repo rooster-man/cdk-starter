@@ -47,21 +47,19 @@ export async function getSpaces(
     }
   }
 
-  const location = event.queryStringParameters.location
+  // const location = event.queryStringParameters.location
   const result = await ddbClient.send(
     new ScanCommand({
-      TableName: process.env.TABLE_NAME,
-      FilterExpression: 'location = :location',
-      ExpressionAttributeValues: {
-        ':location': { S: location }
-      }
+      TableName: process.env.TABLE_NAME
+      // FilterExpression: 'location = :location',
+      // ExpressionAttributeValues: {
+      //   ':location': { S: location }
+      // }
     })
   )
 
-  console.log(result.Items)
-
   return {
     statusCode: 200,
-    body: JSON.stringify(result.Items)
+    body: JSON.stringify(result.Items.map((item) => unmarshall(item)))
   }
 }

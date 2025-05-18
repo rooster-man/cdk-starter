@@ -1,12 +1,21 @@
 GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
 
 ###
-GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=6ed10520-3aa5-41d8-b58b-26a44e302b08
+GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=e82326d0-040f-4f7d-9304-2a14a21be688
 
 ###
 POST https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
 content-type: application/json
 
 {
-  "location": "Texas"
+  "name": "hayden",
+  "location": "China"
+}
+
+###
+PUT https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=e82326d0-040f-4f7d-9304-2a14a21be688
+content-type: application/json
+
+{
+  "location": "jackson"
 }
