@@ -1,19 +1,27 @@
-GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
+@url = https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod
+@token = eyJraWQiOiJYZklha2hSZ1pDYU1aK0RXRzU3b3NLdUROYTFMZnVFOVZVTEFCcE00dGd3PSIsImFsZyI6IlJTMjU2In0.eyJvcmlnaW5fanRpIjoiYjQ4NTAxNjEtNDMwYS00MDM0LTgyMTctMDEzYjlmOTAzNGMyIiwic3ViIjoiMTQ1ODY0ZjgtZjBkMS03MDkzLTUzMWYtY2NlZTdlNTRmOGI5IiwiYXVkIjoiMTFnZmw4MTJxMnIxcDc2b2V2a2ZldjEyOW4iLCJldmVudF9pZCI6IjI2NzIyMjZmLWExNTQtNDNjOC05YWQyLTQxOTUxZjIzNmU3ZSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzQ3Njg0NjQ0LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9Ja1VLSG9xZ0IiLCJjb2duaXRvOnVzZXJuYW1lIjoidGVzdHVzZXIiLCJleHAiOjE3NDc2ODgyNDQsImlhdCI6MTc0NzY4NDY0NCwianRpIjoiYWY1ZjQ5MGMtZTk2ZC00NzQ0LWIwN2EtMzQ3YjQzNmM3YjljIn0.aeIHGAoGhm0G179HATUO9npfr_h2uAr5xniwQUaR-1ct7bfAG41_EY_eAwZODLDMgt3t7ZIyJDyBPi6cRC2vZAXViHNBjnaSFR-EXjOK-9VsvwB-eSMl1FYV3RajrNOmr8qh78Knx2WbNYmDxNsfLf2Idf4B4Bj0ydADsiGfwVxPvNGRxaX4b0HK-youzw11zKakvUn10DvwjhDK20mcUwfm0f3UPDJD7cAhnTbfrYGrSqWfkQcxbwOzYk05wvZ0t8wHR5_E6YYySpgnYQBSe4-IAYPxT7S8DK2Twh1DgSJ9aR2RLxT0R8weCPBpwAGT-T-2PvtoPwapcI3Muha67A
+
+
+GET {{url}}/spaces
+Authorization: {{token}}
 
 ###
-GET https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=e82326d0-040f-4f7d-9304-2a14a21be688
+GET {{url}}/spaces?id=e82326d0-040f-4f7d-9304-2a14a21be688
+Authorization: {{token}}
 
 ###
-POST https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces
+POST {{url}}/spaces
+Authorization: {{token}}
 content-type: application/json
 
 {
-  "name": "hayden",
-  "location": "World"
+  "name": "bob",
+  "location": "bilder"
 }
 
 ###
-PUT https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=bc0ec6af-be91-4dec-84b0-afdb6b5a75d7
+PUT {{url}}/spaces?id=bc0ec6af-be91-4dec-84b0-afdb6b5a75d7
+Authorization: {{token}}
 content-type: application/json
 
 {
@@ -22,5 +30,6 @@ content-type: application/json
 
 ###
 
-DELETE https://5kbtt1dxcf.execute-api.us-east-1.amazonaws.com/prod/spaces?id=bc0ec6af-be91-4dec-84b0-afdb6b5a75d7
+DELETE {{url}}/spaces?id=bc0ec6af-be91-4dec-84b0-afdb6b5a75d7
+Authorization: {{token}}
 content-type: application/json
