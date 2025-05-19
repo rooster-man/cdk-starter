@@ -12,11 +12,19 @@ import {
   APIGatewayProxyResult,
   Context
 } from 'aws-lambda'
+import { isAdmin } from '../shared/utils'
 
 export async function deleteSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
+  if (!isAdmin(event)) {
+    return {
+      statusCode: 403,
+      body: JSON.stringify({ message: 'Forbidden' })
+    }
+  }
+
   if (event.queryStringParameters && 'id' in event.queryStringParameters) {
     const id = event.queryStringParameters.id
 
